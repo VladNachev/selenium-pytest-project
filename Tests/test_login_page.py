@@ -1,11 +1,11 @@
 import pytest
 from docutils.parsers.rst.directives import flag
 
-from Config.config import TestData
-from Pages.LoginPage import LoginPage
-from Tests.test_base import BaseTest
+from config.config import TestData
+from pages.login_page import LoginPage
+from tests.test_base import BaseTest
 
-class Test_Login(BaseTest):
+class TestLogin(BaseTest):
 
     def test_signup_link_visible(self):
         self.loginPage = LoginPage(self.driver)

@@ -1,9 +1,9 @@
-from Config.config import TestData
-from Pages.LoginPage import LoginPage
-from Tests.test_base import BaseTest
+from config.config import TestData
+from pages.login_page import LoginPage
+from tests.test_base import BaseTest
 
 
-class Test_Profile(BaseTest):
+class TestProfile(BaseTest):
 
     def test_profile_page_title(self):
         self.loginPage = LoginPage(self.driver)
@@ -19,6 +19,3 @@ class Test_Profile(BaseTest):
         assert header == TestData.PROFILE_PAGE_HEADER
         account_name = profilePage.get_account_name_value()
         assert account_name == TestData.PROFILE_PAGE_ACCOUNT_NANE
-
-
-

@@ -1,8 +1,9 @@
 from selenium.webdriver.common.by import By
+from webdriver_manager.core import driver
 
-from Config.config import TestData
-from Pages.BasePage import BasePage
-from Pages.ProfilePage import ProfilePage
+from config.config import TestData
+from pages.base_page import BasePage
+from pages.profile_page import ProfilePage
 
 
 class LoginPage(BasePage):
@@ -12,6 +13,7 @@ class LoginPage(BasePage):
     PASSWORD = (By.ID, "password")
     LOGIN_BUTTON = (By.ID, "login")
     NEW_USER_BUTTON = (By.ID, "newUser")
+    MESSAGE_LOGIN_FAILED = (By.ID, "name")
 
     """Constructor of the class"""
     def __init__(self, driver):
@@ -23,6 +25,9 @@ class LoginPage(BasePage):
     def get_login_page_title(self, title):
         return self.get_title()
 
+    def validate_url(self):
+        return self.driver.current_url
+
     def is_new_user_button_exist(self):
         return self.is_visible(self.NEW_USER_BUTTON)
 
@@ -32,6 +37,6 @@ class LoginPage(BasePage):
         self.do_click(self.LOGIN_BUTTON)
         return ProfilePage(self.driver)
 
-
-
-
+    def get_message_text(self):
+        if self.is_visible(self.MESSAGE_LOGIN_FAILED):
+            return self.get_element_text(self.MESSAGE_LOGIN_FAILED)
