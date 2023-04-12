@@ -17,7 +17,7 @@ Used technologies in the project:
 ## Clone repository
 
 ```bash
-$ git clone https://github.com/VladNachev/selenium-pytest-pom-project.git
+$ git clone https://github.com/VladNachev/selenium-pytest-project.git
 ```
 ## Test cases
 - test_login_page.py
